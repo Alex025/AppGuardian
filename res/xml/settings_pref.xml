@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+            android:title="Scanner">
+            
+        <CheckBoxPreference
+                android:key="background_check"
+                android:title="Background Check"
+                android:summary="Allows AppGuardian to check for malicious behaviors periodically at background."
+                android:defaultValue="true" />
+            
+        <ListPreference
+                android:key="background_interval"
+                android:title="Background Check Interval"
+                android:dependency="background_check"
+                android:entries="@array/entries_background_interval"
+                android:entryValues="@array/entryvalues_background_interval"
+                android:dialogTitle="Background Check Interval"
+                android:defaultValue="30" />
+        
+        <Preference android:title="Reset white list to default"
+                android:key="reset"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:title="About">
+
+        <EditTextPreference
+                android:key="about_us"
+                android:title="System Security Lab, Indiana University"
+                android:summary="version 1.0" />
+        
+        <PreferenceScreen
+                android:title="End User License Agreement(EULA)">
+
+            <intent android:action="android.intent.action.VIEW"
+                    android:data="https://sites.google.com/site/appguaridan/home/eula" />
+
+        </PreferenceScreen>
+        
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
